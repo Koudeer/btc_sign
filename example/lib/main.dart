@@ -58,33 +58,23 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: ElevatedButton(
             onPressed: () async {
-              var size = await BtcSign.sign([
-                {
-                  "tx_hash_big_endian": "a5c8c86386ac2150e416ffa491460234e51100929b905936b5fb8134c8de40a9",
-                  "tx_output_n": 0,
-                  "script": "76a914fa188e595139846eb4d809dac8bfc206227f404388ac",
-                  "value": 20000
-                },
-                {
-                  "tx_hash_big_endian": "a5c8c86386ac2150e416ffa491460234e51100929b905936b5fb8134c8de40a9",
-                  "tx_output_n": 0,
-                  "script": "76a914fa188e595139846eb4d809dac8bfc206227f404388ac",
-                  "value": 20000
-                },
-                {
-                  "tx_hash_big_endian": "a5c8c86386ac2150e416ffa491460234e51100929b905936b5fb8134c8de40a9",
-                  "tx_output_n": 0,
-                  "script": "76a914fa188e595139846eb4d809dac8bfc206227f404388ac",
-                  "value": 20000
-                },
-                {
-                  "tx_hash_big_endian": "a5c8c86386ac2150e416ffa491460234e51100929b905936b5fb8134c8de40a9",
-                  "tx_output_n": 0,
-                  "script": "76a914fa188e595139846eb4d809dac8bfc206227f404388ac",
-                  "value": 20000
-                }
-              ]);
-              log("Size $size");
+              var size = await BtcSign.sign(
+                  from: "from",
+                  to: "to",
+                  amount: 1100,
+                  fee: 1000,
+                  privateKey: "privateKey",
+                  utxos: [
+                    {
+                      "tx_hash_big_endian":
+                          "a5c8c86386ac2150e416ffa491460234e51100929b905936b5fb8134c8de40a9",
+                      "tx_output_n": 0,
+                      "script":
+                          "76a914fa188e595139846eb4d809dac8bfc206227f404388ac",
+                      "value": 10000
+                    }
+                  ]);
+              log("bool $size");
             },
             child: Text("HELLO"),
           ),
