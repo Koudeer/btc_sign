@@ -69,7 +69,7 @@ class BtcSignPlugin : FlutterPlugin, MethodCallHandler {
                 break;
             } else {
                 needUtxos.add(utxo)
-                utxoAmount = utxo.value.value
+                utxoAmount += utxo.value.value
             }
         }
 
@@ -80,9 +80,9 @@ class BtcSignPlugin : FlutterPlugin, MethodCallHandler {
 
         changeAmount = utxoAmount - (amount!! + fee!!)
 
-        if (changeAmount < 0) {
-            return "";
-        }
+//        if (changeAmount < 0) {
+//            return "";
+//        }
 
         if (changeAmount > 0) {
             transaction.addOutput(
